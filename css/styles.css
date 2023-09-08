@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+  font-family: 'BerkeleyMonoTrial-Regular', regular;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+@font-face {
+  font-family: 'BerkeleyMonoTrial-Regular';
+  src: url('../BerkeleyMonoTrial-Regular.woff') format('woff'),
+       url('../BerkeleyMonoTrial-Regular.ttf') format('truetype');
+}
+
+
+.content-container::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.main-content {
+  position: relative;
+  z-index: 2; /* Make sure it's above the star-container */
+  background-color: rgba(0, 0, 0, 0.263); /* Optional: make it slightly transparent so stars can be seen */
+  overflow-y: auto;
+  max-height: 100vh;
+  padding: 20px; /* give some space for your content */
+  width: 50%; /* or whatever width you want */
+  margin: 0 auto;
+  -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+}
+
+hr.dashed {
+  border-top: 3px dashed #ffffff;
+  border-bottom: 3px dashed #000000;
+}
+
+p {
+  text-align: left;
+}
+
+input {
+  background-color: rgb(0, 0, 0);
+  background-position: 10px 10px; 
+  border: 0.5px solid rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  color: #fff;
+  height: 30px;
+}
+
+.button {
+  background-color: rgb(0, 0, 0);
+  border: 0.5px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  height: 30px;
+  width: 100px;
+  font-family: 'BerkeleyMonoTrial-Regular', regular;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  border: 0.5px solid rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+header {
+  text-align: center;
+  color: #fff;
+  min-height: 70vh;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.star-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.star, .shooting-star {
+  position: absolute;
+}
+
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  animation: twinkle 3s linear infinite alternate;
+}
+
+.shooting-star {
+  width: 2px;
+  height: 2px;
+  background-color: #ffffff;
+  animation: shooting 1s linear infinite;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes shooting {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+  5% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(calc(60vw + 50%), calc(60vh + 50%));
+  }
+}
